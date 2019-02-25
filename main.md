@@ -156,7 +156,7 @@ $ helm template --name sample-prometheus \
 ---
 ### Install
 
-[sample-prometheus.yaml](file://sample-prometheus.yaml)
+[sample-prometheus.yaml](https://github.com/Kyohei-M/slide-k8s-monitoring/blob/master/sample-prometheus.yaml)
 
 ```console
 # Prometheusを起動
