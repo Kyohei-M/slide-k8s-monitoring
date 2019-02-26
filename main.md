@@ -113,9 +113,9 @@ class: center, middle, inverse
 .left-large[
 - CNCFがホストするOSSの監視ツール
 
-- 成熟度はGraduated
-
 - 時系列でメトリクスを収集
+
+- Reliability
 ]
 
 ---
@@ -156,7 +156,26 @@ $ helm template --name sample-prometheus \
 ---
 ### Install
 
+LBとして外部に公開する場合は、valuesファイルを用意しておく
+
+```yaml
+alertmanager:
+  service:
+    type: LoadBalancer
+pushgateway:
+  service:
+    type: LoadBalancer
+server:
+  service:
+    type: LoadBalancer
+```
+
+---
+### Install
+
 [sample-prometheus.yaml](https://github.com/Kyohei-M/slide-k8s-monitoring/blob/master/sample-prometheus.yaml)
+
+[sample-prometheus-lb.yaml](https://github.com/Kyohei-M/slide-k8s-monitoring/blob/master/sample-prometheus-lb.yaml)
 
 ```console
 # Prometheusを起動
@@ -164,11 +183,35 @@ $ kubectl apply -f sample-prometheus.yaml
 ```
 
 ---
-### Prometheus
-
----
 class: center, middle, inverse
 # Demo
+
+---
+### Prometheus Server
+
+<center><img src="/prometheus-server1.png" width=100%></center>
+
+---
+### Prometheus Server
+
+<center><img src="/prometheus-server2.png" width=100%></center>
+
+---
+### PromQL
+
+Prometheus Query Language
+
+```sql
+# Example
+# apiserverのhttpリクエスト合計
+http_requests_total{job="apiserver"}
+
+# 直近5分のhttpリクエストの増加率
+rate(http_requests_total[5m])[30m:1m]
+
+# 直近1時間での空きメモリ量の差
+delta(node_memory_MemFree_bytes[1h])
+```
 
 ---
 ### Books
