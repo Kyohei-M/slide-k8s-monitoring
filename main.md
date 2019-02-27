@@ -188,12 +188,12 @@ class: center, middle, inverse
 ---
 ### Prometheus Server
 
-<center><img src="/prometheus-server1.png" width=100%></center>
+<center><img src="prometheus-server1.png" width=100%></center>
 
 ---
 ### Prometheus Server
 
-<center><img src="/prometheus-server2.png" width=100%></center>
+<center><img src="prometheus-server2.png" width=100%></center>
 
 ---
 ### PromQL
@@ -219,7 +219,7 @@ delta(node_memory_MemFree_bytes[1h])
 OSSのデータ可視化ツール
 ]
 
-<center><img src="/grafana.png" width=80%></center>
+<center><img src="grafana.png" width=80%></center>
 
 ---
 ### Grafana
@@ -227,7 +227,7 @@ OSSのデータ可視化ツール
 helmでインストール
 
 ```console
-$ helm install stable/grafana
+$ helm install -n sample-grafana stable/grafana
 
 ```
 
