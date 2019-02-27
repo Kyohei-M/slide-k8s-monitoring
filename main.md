@@ -3,16 +3,17 @@ layout: true
 class: center, middle, inverse
 
 ---
-## Kubernetes実践入門
+## Kubernetes入門
 
----
-## Monitoring編
+Monitoring
 
 ---
 layout: false
-### Targets
+### Assumptions
 
-- Kubernetesの概要程度の知識がある人
+- Kubernetesの概要程度の知識
+
+### Targets
 
 - Monitoring未経験者
 
@@ -141,7 +142,7 @@ class: center, middle, inverse
 ### Install
 
 Helmを使用してマニフェストを作成  
-[Official](https://helm.sh/)
+[公式サイト](https://helm.sh/)
 
 ```console
 # Chartのダウンロード
@@ -174,8 +175,6 @@ server:
 ### Install
 
 [sample-prometheus.yaml](https://github.com/Kyohei-M/slide-k8s-monitoring/blob/master/sample-prometheus.yaml)
-
-[sample-prometheus-lb.yaml](https://github.com/Kyohei-M/slide-k8s-monitoring/blob/master/sample-prometheus-lb.yaml)
 
 ```console
 # Prometheusを起動
@@ -214,9 +213,23 @@ delta(node_memory_MemFree_bytes[1h])
 ```
 
 ---
-### Books
+### Grafana
 
-<center><img src="https://images-na.ssl-images-amazon.com/images/I/71F%2BqeYXNgL.jpg" width=45%></center>
+.zoom1[
+OSSのデータ可視化ツール
+]
+
+<center><img src="/grafana.png" width=80%></center>
+
+---
+### Grafana
+
+helmでインストール
+
+```console
+$ helm install stable/grafana
+
+```
 
 ---
 ### Books
@@ -228,8 +241,8 @@ delta(node_memory_MemFree_bytes[1h])
 
 [Monitoring and Observability](https://thenewstack.io/monitoring-and-observability-whats-the-difference-and-why-does-it-matter/)
 
-[Datadog - Official](https://www.datadoghq.com/)
+[Datadog - 公式](https://www.datadoghq.com/)
 
-[Prometheus - Official](https://prometheus.io/)
+[Prometheus - 公式](https://prometheus.io/)
 
-[Prometheus - GitHub](https://github.com/prometheus/prometheus)
+[Grafana - 公式](https://grafana.com/)
