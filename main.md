@@ -3,19 +3,51 @@ layout: true
 class: center, middle, inverse
 
 ---
-## Kubernetes入門
-
-Monitoring
+## Kubernetes Monitoring
+## Introduction
 
 ---
 layout: false
-### Assumptions
+## whoami
+
+.left-small[
+    ![image](https://pbs.twimg.com/profile_images/994762110792953856/EheEvqBY_400x400.jpg)
+]
+
+.right-large[
+- Kyohei Mizumoto(@kyohmizu)
+
+- C# Software Engineer
+
+- Interests
+    - Docker/Kubernetes
+    - Go
+    - Security
+]
+
+---
+### Required
 
 - Kubernetesの概要程度の知識
 
 ### Targets
 
-- Monitoring未経験者
+- Kubernetes Monitoring未経験者
+
+---
+### Contents
+
+1. Monitoring Overview
+
+1. Datadog
+
+1. Prometheus
+
+1. Demo
+
+---
+class: center, middle, inverse
+# Monitoring Overview
 
 ---
 ### Monitoring
@@ -32,10 +64,12 @@ layout: false
 ---
 ### Observability
 
-> a measure of how well internal states of a system can be inferred from knowledge of its external outputs.
+A measure of how well internal states of a system can be inferred from knowledge of its external outputs
 
 ---
-<center><img src=landscape.png width=80%></center>
+class: header-margin
+### Landscape
+<center><img src=landscape.png width=58%></center>
 
 ---
 ### Tools
@@ -68,6 +102,7 @@ class: center, middle, inverse
 # Datadog
 
 ---
+class: header-margin
 ### Datadog
 
 .right-small[
@@ -83,6 +118,7 @@ class: center, middle, inverse
 ]
 
 ---
+class: header-margin
 ### Dashboard
 
 <center><img src="https://datadog-prod.imgix.net/img/blog/monitoring-kubernetes-with-datadog/kubernetes-dashboard-small.png" width=100%></center>
@@ -105,6 +141,7 @@ class: center, middle, inverse
 # Prometheus
 
 ---
+class: header-margin
 ### Prometheus
 
 .right-small[
@@ -120,9 +157,10 @@ class: center, middle, inverse
 ]
 
 ---
+class: header-margin
 ### Architecture
 
-<center><img src="https://camo.githubusercontent.com/78b3b29d22cea8eee673e34fd204818ea532c171/68747470733a2f2f63646e2e6a7364656c6976722e6e65742f67682f70726f6d6574686575732f70726f6d65746865757340633334323537643036396336333036383564613335626365663038343633326666643564363230392f646f63756d656e746174696f6e2f696d616765732f6172636869746563747572652e737667" width=85%></center>
+<center><img src="https://camo.githubusercontent.com/78b3b29d22cea8eee673e34fd204818ea532c171/68747470733a2f2f63646e2e6a7364656c6976722e6e65742f67682f70726f6d6574686575732f70726f6d65746865757340633334323537643036396336333036383564613335626365663038343633326666643564363230392f646f63756d656e746174696f6e2f696d616765732f6172636869746563747572652e737667" width=80%></center>
 
 ---
 ### Architecture
@@ -139,10 +177,14 @@ class: center, middle, inverse
 メトリクスをPushしておく
 
 ---
-### Install
+class: center, middle, blue
+# Get Started
+
+---
+### Use Helm
 
 Helmを使用してマニフェストを作成  
-[公式サイト](https://helm.sh/)
+公式サイト：<u><https://helm.sh/></u>
 
 ```console
 # Chartのダウンロード
@@ -155,7 +197,7 @@ $ helm template --name sample-prometheus \
 ```
 
 ---
-### Install
+### Values
 
 LBとして外部に公開する場合は、valuesファイルを用意しておく
 
@@ -172,9 +214,13 @@ server:
 ```
 
 ---
-### Install
+### Deploy
 
-[sample-prometheus.yaml](https://github.com/Kyohei-M/slide-k8s-monitoring/blob/master/sample-prometheus.yaml)
+サンプルをデプロイ
+
+.zoom1[
+<u><https://github.com/Kyohei-M/slide-k8s-monitoring/blob/master/sample-prometheus.yaml></u>
+]
 
 ```console
 # Prometheusを起動
@@ -186,11 +232,13 @@ class: center, middle, inverse
 # Demo
 
 ---
+class: header-margin
 ### Prometheus Server
 
 <center><img src="prometheus-server1.png" width=100%></center>
 
 ---
+class: header-margin
 ### Prometheus Server
 
 <center><img src="prometheus-server2.png" width=100%></center>
@@ -215,11 +263,11 @@ delta(node_memory_MemFree_bytes[1h])
 ---
 ### Grafana
 
-.zoom1[
+.zoom2[
 OSSのデータ可視化ツール
 ]
 
-<center><img src="grafana.png" width=80%></center>
+<center><img src="grafana.png" width=73%></center>
 
 ---
 ### Grafana
@@ -237,12 +285,22 @@ $ helm install stable/grafana
 <center><img src="https://images-na.ssl-images-amazon.com/images/I/91VNghpL1EL.jpg" width=45%></center>
 
 ---
-### Website
+### Links
 
-[Monitoring and Observability](https://thenewstack.io/monitoring-and-observability-whats-the-difference-and-why-does-it-matter/)
+.zoom2[
+Monitoring and Observability  
+<u><https://thenewstack.io/monitoring-and-observability-whats-the-difference-and-why-does-it-matter/></u>
 
-[Datadog - 公式](https://www.datadoghq.com/)
+Datadog  
+<u><https://www.datadoghq.com/></u>
 
-[Prometheus - 公式](https://prometheus.io/)
+Prometheus  
+<u><https://prometheus.io/></u>
 
-[Grafana - 公式](https://grafana.com/)
+Grafana  
+<u><https://grafana.com/></u>
+]
+
+---
+class: center, middle, blue
+# Thank you!
